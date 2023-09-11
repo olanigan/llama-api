@@ -4,9 +4,8 @@ from twilio.twiml.messaging_response import MessagingResponse
 from langchain import LLMChain, PromptTemplate
 from langchain.llms import Baseten
 from langchain.memory import ConversationBufferWindowMemory
-from dotenv import dotenv_values
 
-config = dotenv_values(".env")
+import os
 
 app = Flask(__name__)
 
@@ -23,9 +22,10 @@ SMS: {sms_input}
 Assistant:"""
 
 prompt = PromptTemplate(input_variables=["sms_input"], template=template)
+basten_model_id = os.environ['BASETEN_MODEL_ID']
 
 sms_chain = LLMChain(
-    llm=Baseten(model=config.get("BASETEN_MODEL_ID")),
+    llm=Baseten(model=basten_model_id),
     prompt=prompt,
     memory=ConversationBufferWindowMemory(k=2),
     llm_kwargs={"max_length": 4096}

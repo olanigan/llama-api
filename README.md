@@ -1,3 +1,3 @@
-# Hosted API for Llama2 with LangChain
+# Chat Bot API with Llama2, Flask and LangChain
 
-API endpoint for LangChain and Llama 2 hosted on Baseten
+Flask API endpoint for LangChain and Llama 2 hosted on Baseten
