@@ -1,0 +1,5 @@
+langchain
+baseten
+flask
+twilio
+python-dotenv
